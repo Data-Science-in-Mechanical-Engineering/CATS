@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - override /dataset: ICD
+  - override /model: verytiny
+
+batch_size: 2048
+epochs: 50
+
+train_mixed_precision: true
+
+save_examples: true
+
+optimizer:
+  learning_rate: 0.001

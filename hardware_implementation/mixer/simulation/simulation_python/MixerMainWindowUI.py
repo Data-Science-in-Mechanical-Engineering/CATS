@@ -1,0 +1,101 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'MixerMainWindowUI.ui'
+#
+# Created by: PyQt5 UI code generator 5.14.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1200, 800)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.leftMenuVLayout = QtWidgets.QVBoxLayout()
+        self.leftMenuVLayout.setContentsMargins(0, -1, -1, -1)
+        self.leftMenuVLayout.setObjectName("leftMenuVLayout")
+        self.testbedLbl = QtWidgets.QLabel(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.testbedLbl.sizePolicy().hasHeightForWidth())
+        self.testbedLbl.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.testbedLbl.setFont(font)
+        self.testbedLbl.setAlignment(QtCore.Qt.AlignCenter)
+        self.testbedLbl.setObjectName("testbedLbl")
+        self.leftMenuVLayout.addWidget(self.testbedLbl)
+        self.testbedGenerateBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.testbedGenerateBtn.setObjectName("testbedGenerateBtn")
+        self.leftMenuVLayout.addWidget(self.testbedGenerateBtn)
+        self.testbedLoadBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.testbedLoadBtn.setObjectName("testbedLoadBtn")
+        self.leftMenuVLayout.addWidget(self.testbedLoadBtn)
+        self.testbedSaveBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.testbedSaveBtn.setObjectName("testbedSaveBtn")
+        self.leftMenuVLayout.addWidget(self.testbedSaveBtn)
+        self.line = QtWidgets.QFrame(self.centralwidget)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.leftMenuVLayout.addWidget(self.line)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.leftMenuVLayout.addItem(spacerItem)
+        self.linkModelBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.linkModelBtn.setObjectName("linkModelBtn")
+        self.leftMenuVLayout.addWidget(self.linkModelBtn)
+        self.horizontalLayout.addLayout(self.leftMenuVLayout)
+        self.graphicsView = MyQGraphicsView(self.centralwidget)
+        self.graphicsView.setObjectName("graphicsView")
+        self.horizontalLayout.addWidget(self.graphicsView)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setContentsMargins(0, -1, -1, -1)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.verticalLayout_2.addWidget(self.label)
+        self.statsLbl = QtWidgets.QLabel(self.centralwidget)
+        self.statsLbl.setText("")
+        self.statsLbl.setObjectName("statsLbl")
+        self.verticalLayout_2.addWidget(self.statsLbl)
+        self.testbedHistogram = QtWidgets.QWidget(self.centralwidget)
+        self.testbedHistogram.setObjectName("testbedHistogram")
+        self.verticalLayout_2.addWidget(self.testbedHistogram)
+        self.widget_2 = QtWidgets.QWidget(self.centralwidget)
+        self.widget_2.setObjectName("widget_2")
+        self.verticalLayout_2.addWidget(self.widget_2)
+        self.horizontalLayout.addLayout(self.verticalLayout_2)
+        MainWindow.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Testbed Configuration"))
+        self.testbedLbl.setText(_translate("MainWindow", "Testbed"))
+        self.testbedGenerateBtn.setText(_translate("MainWindow", "Generate"))
+        self.testbedLoadBtn.setText(_translate("MainWindow", "Load"))
+        self.testbedSaveBtn.setText(_translate("MainWindow", "Save"))
+        self.linkModelBtn.setText(_translate("MainWindow", "Show Link Model"))
+        self.label.setText(_translate("MainWindow", "Stats"))
+from MyQGraphicsView import MyQGraphicsView

@@ -1,0 +1,38 @@
+#ifndef DNNI_CONFIG_H
+#define DNNI_CONFIG_H
+
+#include "arm_nn_types.h"
+#include "arm_nn_math_types.h"
+#include "fc_layer.h"
+#include "residual_block.h"
+#include "multi_head_attention_block.h"
+
+#define LENGTH_TIMESERIES {{length_timeseries}}
+#define INPUT_BUFFER_SIZE (LENGTH_TIMESERIES * {{input_feature_size}})
+#define Q_BUFFER_SIZE (LENGTH_TIMESERIES * {{q_feature_size}})
+#define O_BUFFER_SIZE (LENGTH_TIMESERIES * {{o_feature_size}})
+#define OUTPUT_BUFFER_SIZE (LENGTH_TIMESERIES * {{output_feature_size}})
+// #define RESIDUAL_BUFFER_SIZE (LENGTH_TIMESERIES * {{residual_feature_size}})
+
+static const cmsis_nn_activation RELU = {.min=0,.max=127};
+static const cmsis_nn_activation LINEAR = {.min=-128,.max=127};
+
+static int8_t ctx_buffer[1024];
+cmsis_nn_context ctx = {.buf=ctx_buffer, .size=1024};
+// static int8_t buffer[INPUT_BUFFER_SIZE];
+static int8_t input_buffer[INPUT_BUFFER_SIZE];
+// static int8_t residual_buffer[RESIDUAL_BUFFER_SIZE];   
+static int8_t q_buffer[Q_BUFFER_SIZE];
+static int8_t k_buffer[Q_BUFFER_SIZE];
+static int8_t v_buffer[Q_BUFFER_SIZE];
+static int8_t o_buffer[O_BUFFER_SIZE];
+static float qk_buffer[LENGTH_TIMESERIES];
+
+{% for l in layer_data_list %}
+#if THIS_NODE_ID == {{loop.index}}
+{{l}}
+{{input_data_list[loop.index0]}}
+#endif
+{% endfor %}
+
+#endif // DNNI_CONFIG_H

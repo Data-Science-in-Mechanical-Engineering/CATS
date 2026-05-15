@@ -1,0 +1,5 @@
+_target_: dataset_loaders.traffic.TrafficDataSource
+context_length: 512
+prediction_length: 96
+dataset_base_path: "/data/datasets"
+name: "traffic"

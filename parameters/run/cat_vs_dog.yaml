@@ -1,0 +1,23 @@
+# @package _global_
+defaults:
+  - override /dataset: cat_vs_dog
+  - override /model: vit_small
+
+batch_size: 2048
+eval_batch_size: 256
+epochs: 500
+num_gradient_accumulation_steps: 2
+train_mixed_precision: True
+
+add_padding: false
+
+num_workers: 23
+
+wandb_project: "cat_vs_dog_pruning2"
+
+model:
+  input_patch_length: 16
+  num_classes: 2
+  num_channels: 1
+
+  disable_pruning_partial_layer_dropout: false

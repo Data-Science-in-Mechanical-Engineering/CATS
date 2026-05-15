@@ -1,0 +1,21 @@
+type: "timeseries"
+
+input_patch_length: 16
+num_patches: 64
+
+num_features_attention: 128
+num_attention_heads: 16
+
+num_layers_residual_block: 2   # number of features always 2xnum_features_attention
+
+num_transformer_blocks: 3
+
+partial_layer_dropout_prob: 0.01
+
+
+dropout_rate: 0.2
+
+attention_scores: "vanilla"
+
+add_pos_embeddings: true
+max_context_length: 512

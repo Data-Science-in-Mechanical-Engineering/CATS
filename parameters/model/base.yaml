@@ -1,0 +1,28 @@
+type: "timeseries_decoder"
+
+input_patch_length: 16
+use_reversible_input_normalization: true
+
+num_features_attention: 384
+num_attention_heads: 16
+
+num_features_residual: 768
+num_layers_residual_block: 2   # number of features always 2xnum_features_attention
+activation_function_residual_block: "gelu"
+
+num_features_head: 768
+num_layers_head: 2
+activation_function_head: "gelu"
+
+num_transformer_blocks: 12
+
+partial_layer_dropout_prob: 0.0
+
+dropout_rate: 0.1
+
+disable_pruning_partial_layer_dropout: false
+
+attention_scores: "vanilla"
+
+add_pos_embeddings: true
+max_context_length: 512

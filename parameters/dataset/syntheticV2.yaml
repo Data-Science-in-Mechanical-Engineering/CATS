@@ -1,0 +1,9 @@
+_target_: dataset_loaders.syntheticV2.SyntheticV2
+name: "SyntheticV2"
+dataset_base_path: "/data/datasets"
+context_length: 512
+prediction_length: 96
+num_training_samples: 1_000_000
+num_test_samples: 100_000
+
+

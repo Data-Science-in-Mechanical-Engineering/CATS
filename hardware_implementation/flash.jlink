@@ -1,0 +1,8 @@
+device NRF52840_XXAA
+selectinterface SWD
+speed 4000 kHz
+connect
+loadfile firmware/Output/Debug/Exe/distributed_inference.elf
+reset
+go
+exit

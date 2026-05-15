@@ -1,0 +1,10 @@
+# @package _global_
+defaults:
+  - override /dataset: traffic_hourly_dataset
+  - override /model: verytiny
+
+batch_size: 2048
+epochs: 30
+
+optimizer:
+  learning_rate: 0.001

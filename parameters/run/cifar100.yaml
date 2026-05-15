@@ -1,0 +1,17 @@
+# @package _global_
+defaults:
+  - override /dataset: cifar100
+  - override /model: vit
+
+batch_size: 128
+
+model:
+  input_patch_length: 4
+  num_classes: 100
+
+  num_features_attention: 128
+  num_features_residual: 526
+
+  num_features_head: 1000
+  num_layers_head: 1
+  activation_function_head: "tanh"

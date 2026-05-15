@@ -1,0 +1,6 @@
+_target_: dataset_loaders.Monash.MonashDataSource
+name: "traffic_hourly_dataset"
+context_length: 512
+prediction_length: 96
+stride: 49
+dataset_base_path: "/data/datasets"

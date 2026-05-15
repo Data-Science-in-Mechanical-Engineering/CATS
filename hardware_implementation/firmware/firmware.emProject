@@ -1,0 +1,137 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="Distributed Inference" target="8" version="2">
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_optimization_level="None" />
+  <configuration
+    Name="PCA10056_Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="None"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 3" />
+  <project Name="distributed_inference">
+    <configuration
+      Name="Common"
+      Placement="Flash"
+      Target="nRF52840_xxAA"
+      arm_architecture="v7EM"
+      arm_core_type="Cortex-M4"
+      arm_endian="Little"
+      arm_fp_abi="Hard"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_interwork="No"
+      arm_linker_heap_size="256"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="256"
+      arm_simulator_memory_simulation_parameter="ROM;0x00000000;0x00100000;RAM;0x20000000;0x00040000"
+      arm_target_debug_interface_type="ADIv5"
+      arm_target_device_name="nRF52840_xxAA"
+      arm_target_interface_type="SWD"
+      c_preprocessor_definitions="NRF52840_XXAA;__nRF_FAMILY;ARM_MATH_CM4;FLASH_PLACEMENT=1;CONFIG_GPIO_AS_PINRESET;ASSERT_WARN_CT=0;GPI_STDOUT_UART_BAUDRATE=115200;MX_CONFIG_FILE=$(ProjectDir)/distributed_inference/mixer_config.h;THIS_NODE_ID=$(EXT_THIS_NODE_ID)"
+      c_user_include_directories="$(ProjectDir)/CMSIS_4/CMSIS/Include;$(ProjectDir)/nRF/CMSIS/Device/Include;$(ProjectDir)/../mixer/src;$(ProjectDir)/distributed_inference;$(ProjectDir)/../CMSIS-NN/Include"
+      debug_register_definition_file="$(ProjectDir)/nrf52840_Registers.xml"
+      debug_target_connection="J-Link"
+      gcc_c_language_standard="gnu11"
+      gcc_debugging_level="None"
+      gcc_entry_point="Reset_Handler"
+      gcc_optimization_level="Level 3 for more speed"
+      linker_memory_map_file="$(ProjectDir)/nRF52840_xxAA_MemoryMap.xml"
+      linker_output_format="hex"
+      linker_post_build_command=""
+      linker_printf_fmt_level="long"
+      linker_printf_width_precision_supported="Yes"
+      linker_scanf_fmt_level="long"
+      linker_section_placement_file="$(ProjectDir)/flash_placement.xml"
+      macros="DeviceHeaderFile=$(PackagesDir)/nRF/CMSIS/Device/Include/nrf.h;DeviceLibraryIdentifier=M4lf;DeviceSystemFile=$(PackagesDir)/nRF/CMSIS/Device/Source/system_nrf52840.c;DeviceVectorsFile=$(PackagesDir)/nRF/Source/ses_nrf52840_Vectors.s;DeviceFamily=nRF;Target=nRF52840_xxAA;Placement=Flash"
+      project_directory=""
+      project_type="Executable"
+      target_reset_script="Reset();"
+      target_script_file="$(ProjectDir)/nRF_Target.js"
+      target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)" />
+    <configuration
+      Name="Debug"
+      c_preprocessor_definitions="GPI_ARCH_PLATFORM=($(EXT_BOARD)|GPI_ARCH_CRT_SEGGER2);GPI_TRACE_MODE=GPI_TRACE_MODE_NO_TRACE;GPI_TRACE_BASE_SELECTION=GPI_TRACE_LOG_STANDARD|GPI_TRACE_LOG_USER;GPI_TRACE_BUFFER_ELEMENTS=64"
+      gcc_debugging_level="Level 3"
+      gcc_optimization_level="Level 1" />
+    <configuration
+      Name="PCA10056_Release"
+      c_preprocessor_definitions="GPI_ARCH_PLATFORM=(GPI_ARCH_BOARD_nRF_PCA10056|GPI_ARCH_CRT_SEGGER2);GPI_TRACE_MODE=GPI_TRACE_MODE_NO_TRACE;GPI_TRACE_BASE_SELECTION=GPI_TRACE_LOG_STANDARD | GPI_TRACE_LOG_USER;GPI_TRACE_BUFFER_ELEMENTS=64"
+      gcc_optimization_level="Level 2 for size" />
+    <folder Name="CMSIS Files">
+      <file file_name="nRF/CMSIS/Device/Include/nrf.h" />
+      <file file_name="nRF/CMSIS/Device/Source/system_nrf52840.c">
+        <configuration
+          Name="Common"
+          default_code_section=".init"
+          default_const_section=".init_rodata" />
+      </file>
+    </folder>
+    <folder Name="Distributed Inference">
+      <file file_name="distributed_inference/cp_os.c" />
+      <file file_name="distributed_inference/cp_os.h" />
+      <file file_name="distributed_inference/dnni_config.h" />
+      <file file_name="distributed_inference/dnni_mixer_config.h" />
+      <file file_name="distributed_inference/dnni_os.c" />
+      <file file_name="distributed_inference/dnni_os.h" />
+      <file file_name="distributed_inference/exp.c" />
+      <file file_name="distributed_inference/exp.h" />
+      <file file_name="distributed_inference/fc_layer.c" />
+      <file file_name="distributed_inference/fc_layer.h" />
+      <file file_name="distributed_inference/internal_messages.c" />
+      <file file_name="distributed_inference/internal_messages.h" />
+      <file file_name="distributed_inference/layernorm.c" />
+      <file file_name="distributed_inference/layernorm.h" />
+      <file file_name="../CMSIS-NN/build/libcmsis-nn.a" />
+      <file file_name="distributed_inference/message_assignment.h" />
+      <file file_name="distributed_inference/message_layer.c" />
+      <file file_name="distributed_inference/message_layer.h" />
+      <file file_name="distributed_inference/messages.c" />
+      <file file_name="distributed_inference/messages.h" />
+      <file file_name="distributed_inference/mixer_aggregate.c" />
+      <file file_name="distributed_inference/mixer_aggregate.h" />
+      <file file_name="distributed_inference/mixer_config.h" />
+      <file file_name="distributed_inference/model.c" />
+      <file file_name="distributed_inference/model.h" />
+      <file file_name="distributed_inference/multi_head_attention_block.c" />
+      <file file_name="distributed_inference/multi_head_attention_block.h" />
+      <file file_name="distributed_inference/residual_block.c" />
+      <file file_name="distributed_inference/residual_block.h" />
+      <file file_name="distributed_inference/spi.c" />
+      <file file_name="distributed_inference/spi.h" />
+      <file file_name="distributed_inference/uart.c" />
+      <file file_name="distributed_inference/uart.h" />
+      <file file_name="distributed_inference/wireless_control.h" />
+    </folder>
+    <folder Name="Mixer Files">
+      <file file_name="../mixer/src/gpi/gpi.c" />
+      <file file_name="../mixer/src/mixer/nrf52840/memxor.c" />
+      <file file_name="../mixer/src/mixer/mixer.c" />
+      <file file_name="../mixer/src/mixer/mixer_aggregate_decflame.c" />
+      <file file_name="../mixer/src/mixer/mixer_discovery.c" />
+      <file file_name="../mixer/src/mixer/mixer_history.c" />
+      <file file_name="../mixer/src/mixer/nrf52840/mixer_internal.c" />
+      <file file_name="../mixer/src/mixer/mixer_processing.c" />
+      <file file_name="../mixer/src/mixer/mixer_rand.c" />
+      <file file_name="../mixer/src/mixer/mixer_request.c" />
+      <file file_name="../mixer/src/mixer/nrf52840/mixer_transport_ble.c" />
+    </folder>
+    <folder Name="Script Files">
+      <file file_name="nRF/Scripts/nRF_Target.js">
+        <configuration Name="Common" file_type="Reset Script" />
+      </file>
+    </folder>
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <file file_name="main.c" />
+    </folder>
+    <folder Name="System Files">
+      <file file_name="nRF/Source/ses_nrf52840_Vectors.s">
+        <configuration Name="Common" file_type="Assembly" />
+      </file>
+      <file file_name="nRF/Source/ses_nRF_Startup.s" />
+      <file file_name="thumb_crt0.s" />
+    </folder>
+  </project>
+</solution>

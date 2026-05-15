@@ -1,0 +1,8 @@
+_target_: dataset_loaders.ETT.ETT
+name: "ETT"
+dataset_base_path: "/data/datasets"
+variant: "h1"
+context_length: 512
+prediction_length: 96
+
+

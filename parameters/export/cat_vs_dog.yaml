@@ -1,0 +1,8 @@
+hydra:
+  job:
+    chdir: True
+  run:
+    # dir: ${root_dir}/${experiment}/${neural_network.type}/${now:%Y%m%d}/${now:%H%M%S}
+    dir: /data/distributed_transformer/export
+  sweep:
+    dir: /data/distributed_transformer/export

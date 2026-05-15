@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - override /dataset: traffic
+  - override /model: tiny
+
+batch_size: 512
+
+epochs: 30

@@ -1,0 +1,50 @@
+defaults:
+  - dataset: imagenet1k
+  - model: vit
+  - optimizer: adam
+  - _self_
+
+do_finetuning: false
+
+use_pytorch_dataloader: true
+
+do_distributed_training: false
+train_mixed_precision: false
+
+batch_size: 4096
+num_workers: 91
+epochs: 10
+checkpoint_interval: 10
+worker_count: 10
+num_gradient_accumulation_steps: 1
+
+num_devices: 8
+per_step_pruning_ratio: 0.1
+pruning_step: 0
+
+seed: 0
+
+eval_batch_size: 4096
+add_padding: true
+
+experiment_name_wandb: ${model.num_transformer_blocks}_${model.num_features_attention}_${model.num_features_residual}_${do_finetuning}
+
+wandb_log: true
+wandb_project: "pruningV3_total"
+wandb_entity: "distributed_transformer"
+
+print_console: true
+save_examples: false
+
+root_dir: "/data/distributed_transformer"
+
+override_existing_data: false  # if in the corresponding folder defined at hydra.run/sweep/dir already exists data, it will be deleted and recreated. Otherwise, the experiment will be skipped, if the folder already contains data.
+
+hydra:
+  job:
+    chdir: True
+  run:
+    # dir: ${root_dir}/${experiment}/${neural_network.type}/${now:%Y%m%d}/${now:%H%M%S}
+    dir: ${root_dir}/${wandb_project}/${dataset.name}/${model.num_transformer_blocks}_${model.num_features_attention}_${model.num_features_residual}_${do_finetuning}  #/${now:%Y%m%d%H%M%S}
+  sweep:
+    dir: ${root_dir}/${wandb_project}/${dataset.name}/${model.num_transformer_blocks}_${model.num_features_attention}_${model.num_features_residual}_${do_finetuning}

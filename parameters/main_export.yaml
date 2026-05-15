@@ -1,0 +1,49 @@
+dataset:
+  context_length: 512
+  prediction_length: 8
+model:
+  input_patch_length: 16
+  use_reversible_input_normalization: false
+
+  num_features_attention: 512 # 256
+  num_attention_heads: 16
+
+  num_features_residual: 512 # 256
+  num_layers_residual_block: 2   # number of features always 2xnum_features_attention
+  activation_function_residual_block: "relu"
+  prune_residual_blocks_completely: False
+
+  num_features_head: 512  # 256
+  num_layers_head: 2
+  activation_function_head: "relu"
+
+  num_transformer_blocks: 1
+
+  partial_layer_dropout_prob: 0.0
+
+  dropout_rate: 0.0
+
+  disable_pruning_partial_layer_dropout: false
+
+  attention_scores: "vanilla"
+
+  add_pos_embeddings: false
+  max_context_length: 512
+
+
+num_devices: 2
+
+seed: 42
+
+pruning_ratio: 0.0
+
+
+
+hydra:
+  job:
+    chdir: True
+  run:
+    # dir: ${root_dir}/${experiment}/${neural_network.type}/${now:%Y%m%d}/${now:%H%M%S}
+    dir: /data/distributed_transformer/export
+  sweep:
+    dir: /data/distributed_transformer/export

@@ -1,0 +1,4 @@
+_target_: dataset_loaders.cat_vs_dog.CatVsDog
+resolution: 112  # 224
+dataset_base_path: "/data/datasets"
+name: "cat_vs_dog"

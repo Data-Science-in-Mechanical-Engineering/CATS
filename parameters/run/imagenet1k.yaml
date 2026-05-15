@@ -1,0 +1,17 @@
+# @package _global_
+defaults:
+  - override /dataset: imagenet1k
+  - override /model: vit
+
+batch_size: 4096
+
+model:
+  input_patch_length: 16
+  num_classes: 1000
+
+  num_features_attention: 200
+  num_features_residual: 800
+
+  num_features_head: 1000
+  num_layers_head: 1
+  activation_function_head: "tanh"

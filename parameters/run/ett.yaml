@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - override /dataset: ETT
+  - override /model: verytiny
+
+batch_size: 512
+
+epochs: 50

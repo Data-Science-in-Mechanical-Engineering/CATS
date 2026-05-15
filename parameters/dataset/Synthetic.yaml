@@ -1,0 +1,8 @@
+_target_: dataset_loaders.Synthetic.Periodic
+name: "Periodic"
+context_length: 512
+prediction_length: 128
+dataset_base_path: None
+
+
+

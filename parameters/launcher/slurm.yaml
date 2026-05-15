@@ -1,0 +1,27 @@
+# @package _global_
+defaults:
+  - override /hydra/launcher: submitit_slurm
+
+root_dir: "/work/p0021919/distributed_transformer"
+
+hydra: 
+  launcher: # https://hydra.cc/docs/plugins/submitit_launcher/
+    gres: gpu:1
+    account: p0021919
+    submitit_folder: ${hydra.sweep.dir}/.submitit/%j
+    array_parallelism: 30
+    cpus_per_task: 24
+    additional_parameters:
+      output: /work/mf724021/slurm_output/%A_%a.out
+      error: /work/mf724021/slurm_output/%A_%a.err
+      time: 0-05:00:00
+
+    setup: [
+      "echo '# Loading modules!'", "module load GCCcore/.13.3.0",
+      "echo '# Loading python module!'", "module load Python/3.12.3 ",
+      "echo '# Activate venv!'", ". ./venv/bin/activate", 
+    ]
+
+dataset:
+  dataset_base_path: "/hpcwork/p0021919/datasets"
+# wandb_project: "${dataset.file_label}_${num_devices}_devices_results_cluster"

@@ -1,0 +1,7 @@
+_target_: dataset_loaders.cifar100.Cifar100
+name: "cifar100"
+resolution: 32 
+augment_magnitude: 0.5
+dataset_base_path: "/data/datasets"
+
+

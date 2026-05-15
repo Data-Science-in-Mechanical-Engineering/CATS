@@ -1,0 +1,103 @@
+# Created by Octave 5.1.0, Wed May 29 16:46:46 2019 GMT <unknown@Desktop-Fabian>
+# name: testcase
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 7
+# name: paramStrings
+# type: cell
+# rows: 6
+# columns: 1
+# name: <cell-element>
+# type: sq_string
+# elements: 1
+# length: 38
+sprintf("data/testbed_%d.dat;", [1:1])
+
+
+# name: <cell-element>
+# type: sq_string
+# elements: 1
+# length: 2
+10
+
+
+# name: <cell-element>
+# type: sq_string
+# elements: 1
+# length: 2
+50
+
+
+# name: <cell-element>
+# type: sq_string
+# elements: 1
+# length: 1
+4
+
+
+# name: <cell-element>
+# type: sq_string
+# elements: 1
+# length: 4
+0b11
+
+
+# name: <cell-element>
+# type: sq_string
+# elements: 1
+# length: 1
+0
+
+
+
+
+
+# name: simulationMode
+# type: string
+# elements: 1
+# length: 7
+default
+
+
+# name: testbeds
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: sq_string
+# elements: 1
+# length: 18
+data/testbed_1.dat
+
+
+
+
+
+# name: configSource
+# type: sq_string
+# elements: 1
+# length: 1918
+i=1;@nconfig(i).label = sprintf("config %d", i);@nconfig(i).fieldSize = 2;@nconfig(i).payloadDistribution = '[1 : length(nodes)]';@nconfig(i).fInitiator = @@(r,n) 1; %1 + rem(r - 1, n);@nconfig(i).fTimeout = @@(n) 5 + randi(5) - 4;@n% nominal timeout: 5 +/- 2 = 3...7 slots from now@nconfig(i).historyWindowLength = 'round([3, 1] * length(nodes))';@nconfig(i).exchangeTriggerSparsity = 'length(nodes)';@nconfig(i).immediateElimination = false;@nconfig(i).fastTxUpdate.allowedUpdates = 1;@nconfig(i).fastTxUpdate.mulOnRx = true;@nconfig(i).fastTxUpdate.mulOnRequest = true;@nconfig(i).fastTxUpdate.mulOnOwn = true;@nconfig(i).smartShutdown = true;@nconfig(i).recursiveNeighborhood = 1;@nconfig(i).txPacket.includeOwn = 3;@n% -1 = always, 0 = unenforced, x>0 = until x times received (= acked)@nconfig(i).txPacket.fAgeToP = @@(a) 0.5 + (1 - 0.5) * 2 ^ (-0.5 * a);@nconfig(i).txPacket.emptyPacketStrategy = 'own';@n% what to insert: 'own' = own, 'first' = first found; 'random' = random one@nconfig(i).fTxCurve = @@(a,d,n,dn) 1 ./ (d + 1) + d ./ (d + 1) .* 2 .^ (-0.5 * a);@n%dr_ = @@(d,dn) 1 / (mean([d dn]) + 1);@n%dr_ = @@(d,dn) 1 / (mean([d, min(dn)]) + 1);@n%dr_ = @@(d,dn) 1 / (norm(double([d dn]), 0.5) / length([d dn]) ^ 2 + 1);@n%config(i).fTxCurve = @@(a,d,n,dn) dr_(d,dn) + (1 - dr_(d,dn)) .* 2 .^ (-0.5 * a);@nconfig(i).coordinatedSlotting.on = true;@nconfig(i).coordinatedSlotting.fpOwn = @@(p,d,n,h) 1 - h;@nconfig(i).coordinatedSlotting.fpForeign = @@(p,d,n,h) h / (d + 1);@nconfig(i).coordinatedSlotting.fpInit = @@(p,n) 1 / n;@nconfig(i).request.mode = 'column,pivot';@nconfig(i).request.columnSearchMode = 'pivot';@n% 'pivot' or 'all'@nconfig(i).request.rxSnoop = true;@nconfig(i).request.fTxColumnYesNo = @@(a,r,n) a > (n - r);@nconfig(i).request.fTxPivotYesNo = @@(a,r,n) a > (n - r);@nconfig(i).request.fTxSelect = @@(m) rand() < nnz(m) / length(m);@nconfig(i).request.fpHelpless = @@(a,d,n) 1 / n;@n
+
+
+# name: config
+# type: matrix
+# rows: 0
+# columns: 0
+
+
+# name: logLevel
+# type: uint32 scalar
+3
+
+
+# name: logDetailsMode
+# type: sq_string
+# elements: 1
+# length: 4
+none
+
+
+
+
